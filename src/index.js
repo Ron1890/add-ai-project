@@ -1,5 +1,5 @@
 function displayFact(response) {
-  let factElement = document.querySelector("#fact");
+  
 
   new Typewriter(factElement, {
     strings: response.data.answer,
@@ -13,7 +13,7 @@ function generateFact(event) {
   event.preventDefault();
 
   let instructionsInput = document.querySelector("#userInstructions");
-  let factElement = document.querySelector("#fact");
+ 
   let apiKey = "137tbd11fb6e495a5570dofc60ef610d";
 
   let prompt = `Generate a fun fact about ${instructionsInput.value}`;
@@ -22,12 +22,12 @@ function generateFact(event) {
 
   let apiURL = `https://api.shecodes.io/ai/v1/generate?prompt=${encodeURIComponent(
     prompt,
-  )}&context=${encodeURIComponent(context)}&key=${apiKey}`;
+  )}&context=${context}&key=${apiKey}`;
 
   let factElement= document.querySelector("#fact");
-  factElement.classList.remove"#hidden";
+  factElement.classList.remove("hidden");
 
-  factElement.innerHTML = `Generating a fun fact about ${instructionsInput.value}`
+ factElement.innerHTML = `<div class= generating>Generating a fun fact about ${instructionsInput.value}`;
   axios.get(apiURL).then(displayFact);
 }
 
