@@ -1,8 +1,11 @@
 function displayFact(response) {
-  new Typewriter("#fact", {
+  let factElement = document.querySelector("#fact");
+
+  new Typewriter(factElement, {
     strings: response.data.answer,
     autoStart: true,
-    delay: 1,
+    delay: 10,
+    cursor: "",
   });
 }
 
@@ -10,15 +13,18 @@ function generateFact(event) {
   event.preventDefault();
 
   let instructionsInput = document.querySelector("#userInstructions");
-
+  let factElement = document.querySelector("#fact");
   let apiKey = "137tbd11fb6e495a5570dofc60ef610d";
 
-  let prompt = `User instructions or topic: generate a fun fact about ${instructionsInput.value}`;
+  let prompt = `Generate a fun fact about ${instructionsInput.value}`;
+  let context =
+    "You are a funny AI that writes one short fun fact in HTML. Separate lines with <br /> if needed.";
 
-  let content =
-    "You are a very funny AI who likes to tell short fun facts. Generate a fun fact in HTML and separate each line with <br/>. Make sure the fact reflects the user's topic.";
+  let apiURL = `https://api.shecodes.io/ai/v1/generate?prompt=${encodeURIComponent(
+    prompt,
+  )}&context=${encodeURIComponent(context)}&key=${apiKey}`;
 
-  let apiURL = `https://api.shecodes.io/ai/v1/generate?prompt=${prompt}&context=${content}&key=${apiKey}`;
+  factElement.innerHTML = "Generating a fun fact...";
 
   axios.get(apiURL).then(displayFact);
 }
