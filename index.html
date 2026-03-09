@@ -1,27 +1,47 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI fun facts</title>
-   <link rel="stylesheet" href="src/style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI fun facts</title>
+  <link rel="stylesheet" href="src/style.css" />
+  <script src="https://unpkg.com/typewriter-effect@latest/dist/core.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/axios@1.13.2/dist/axios.min.js"></script>
 </head>
 <body>
-    <div class="container">
-  <header>  <h1>Fun Facts🤓</h1>
-</header>
-<main>
-    <form>
-   <input type="text" placeholder="Enter what you want to know" 
-   outofocus required autocomplete="off"
-   class="instructions"/> 
-   <input type="submit" class="button"/>   
-    </form>
-    <div class="facts">The answer will go here</div>
-</main>
+  <div class="container">
+    <header>
+      <h1>Fun Facts🤓</h1>
+    </header>
 
-    <footer>This project was created by <a href=https://github.com/Ron1890/add-ai-project, target="blank">Veronica Dissegna</a> and is open sourced on GitHub</footer>
+    <main>
+        <div class="form-container">
+      <form id="facts-generator-form">
+        <input
+          type="text"
+          placeholder="Enter what you want to know"
+          autofocus
+          required
+          autocomplete="off"
+          class="instructions"
+          id="user-instructions"
+        />
+        <input type="submit" class="button" />
+      </form>
+<div class="hint">flower, computer or cheese</div> </div>
+      <div class="fact hidden" id="fact"></div>
+
+    </main>
+
+    <footer>
+      This project was created by
+      <a href="https://github.com/Ron1890/add-ai-project" target="_blank">
+        Veronica Dissegna
+      </a>
+      and is open sourced on GitHub
+    </footer>
+
     <script src="src/index.js"></script>
-</div>
+  </div>
 </body>
 </html>

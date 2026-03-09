@@ -24,8 +24,10 @@ function generateFact(event) {
     prompt,
   )}&context=${encodeURIComponent(context)}&key=${apiKey}`;
 
-  factElement.innerHTML = "Generating a fun fact...";
+  let factElement= document.querySelector("#fact");
+  factElement.classList.remove"#hidden";
 
+  factElement.innerHTML = `Generating a fun fact about ${instructionsInput.value}`
   axios.get(apiURL).then(displayFact);
 }
 
