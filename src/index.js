@@ -12,7 +12,7 @@ function displayFact(response) {
 function generateFact(event) {
   event.preventDefault();
 
-  let instructionsInput = document.querySelector("#userInstructions");
+  let instructionsInput = document.querySelector("#user-instructions");
  
   let apiKey = "137tbd11fb6e495a5570dofc60ef610d";
 
